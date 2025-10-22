@@ -19,9 +19,11 @@ import io
 
 app = FastAPI(title="Canva AI Server")
 
-UPLOAD_DIR = Path(__file__).parent / "uploads"
-UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+# UPLOAD_DIR = Path(__file__).parent / "uploads"
+# UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
+UPLOAD_DIR = Path("/tmp/uploads")
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 def _timestamp_name(suffix: str = "png") -> str:
     return f"canvas_{datetime.utcnow().strftime('%Y%m%d_%H%M%S_%f')}.{suffix}"
